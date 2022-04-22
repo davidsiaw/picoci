@@ -10,12 +10,22 @@ int main()
 	gpio_set_dir(LED_PIN, GPIO_OUT);
 	
 	int state = 0;
+	char user_input = 0;
+
 	while (true)
 	{
-		printf("blink\n");
-		state = (state + 1) % 2;
+		user_input = getchar();
+
+		if (user_input == '1')
+		{
+			state = 1;
+		}
+		else if (user_input == '0')
+		{
+			state = 0;
+		}
+		printf("%d\n", state);
 		gpio_put(LED_PIN, state);
-		sleep_ms(250);
 	}
 	return 0;
 }
