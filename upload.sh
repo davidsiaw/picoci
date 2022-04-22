@@ -5,3 +5,5 @@ mount /dev/sda1 /mnt/pico
 cp $1 /mnt/pico
 sync
 umount /mnt/pico
+rm -r /mnt/pico
+
