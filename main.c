@@ -14,8 +14,8 @@ int main()
 	{
 		printf("blink\n");
 		state = (state + 1) % 2;
-		gpio_out(LED_PIN, state);
-		sleep_ms(250)
+		gpio_put(LED_PIN, state);
+		sleep_ms(250);
 	}
 	return 0;
 }
