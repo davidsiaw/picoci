@@ -19,7 +19,13 @@ It will output a `main.uf2` file to the `build` folder
 
 Simply run `make deploy`
 
-Caution: this uses the `--privileged` flag on docker so if you don't trust me or Docker, do the normal RPI Pico way of holding the BOOTSEL button down, and copy the file in via your local file manager.
+Caution: this uses the `--privileged` flag on Docker and also assumes that the pi pico will appear as /dev/sda1. If this assumption is wrong and/or you don't trust me or Docker, do the normal RPI Pico way of holding the BOOTSEL button down while re-connecting the Pi Pico, and copy the `build/main.uf2` file obtained by running `make` to the mounted RPI Pico using your local file manager.
+
+## UART connect
+
+Run `make connect`
+
+This assumes `ttyACM0` is the port. It will launch `minicom` for this purpose. In case you are unfamiliar with minicom, to quit press `Ctrl-A` and then `Q` and just say yes.
 
 ## Starting out
 

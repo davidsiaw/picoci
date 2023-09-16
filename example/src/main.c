@@ -8,6 +8,7 @@ int main()
 	uint LED_PIN = PICO_DEFAULT_LED_PIN;
 
 	stdio_init_all();
+
 	gpio_init(LED_PIN);
 	gpio_set_dir(LED_PIN, GPIO_OUT);
 
@@ -23,6 +24,9 @@ int main()
 	sleep_ms(1000);
 	gpio_put(LED_PIN, 1);
 
+	// spinloop and wait for the user to press
+	// the keys 1 or 0. though it responds
+	// to just about any key. try it!
 	while (true)
 	{
 		user_input = getchar();
@@ -36,8 +40,7 @@ int main()
 		}
 		printf("usersent %d\n", state);
 		gpio_put(LED_PIN, state);
-		sleep_ms(1000);
+		sleep_ms(100);
 	}
 	return 0;
 }
-

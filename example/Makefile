@@ -6,21 +6,24 @@ all: build
 build/main.uf2: build
 
 build: cmake/sourcelist.cmake $(H_FILES)
-	docker run --rm -ti -v ${PWD}:/src picoci sh scripts/build.sh
+	@docker run --rm -ti -v ${PWD}:/src davidsiaw/picoci sh scripts/build.sh
 
 cmake/sourcelist.cmake: $(C_FILES)
-	mkdir -p cmake
-	echo 'set(sources ${sources}' > $@
-	for file in $^ ; do \
+	@mkdir -p cmake
+	@echo 'set(sources ${sources}' > $@
+	@for file in $^ ; do \
 		echo "  $$file" >> $@; \
 	done
-	echo ')' >> $@
+	@echo ')' >> $@
 
 clean:
 	rm -rf build cmake
 
 deploy: build/main.uf2
-	docker run --rm -ti -v ${PWD}:/src -v /dev:/dev --privileged --user=root picoci sh -c 'cd scripts && sh bsel.sh ../build/main.uf2'
+	@docker run --rm -ti -v ${PWD}:/src -v /dev:/dev --privileged --user=root davidsiaw/picoci sh -c 'cd scripts && sh bsel.sh ../build/main.uf2'
 
-.PHONY: all clean deploy
+connect:
+	@docker run --rm -ti -v ${PWD}:/src -v /dev:/dev --privileged --user=root davidsiaw/picoci sh scripts/connect.sh
+
+.PHONY: all clean deploy connect
 

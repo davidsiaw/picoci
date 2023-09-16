@@ -16,7 +16,8 @@ RUN apk update && \
             bsd-compat-headers \
             newlib-arm-none-eabi \
             gcc-arm-none-eabi \
-            g++-arm-none-eabi
+            g++-arm-none-eabi \
+            minicom
 
 # Raspberry Pi Pico SDK
 ARG SDK_PATH=/usr/share/pico_sdk
