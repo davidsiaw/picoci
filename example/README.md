@@ -3,6 +3,20 @@ Skeleton Pi Pico application
 
 This is a skeleton/example pi pico application. It consists of the bare minimum scripts to make starting programming a Raspberry Pi Pico as trivial as possible.
 
+## Requires
+
+- docker
+- `apt install build-essential` or the equivalent in the distro you use
+
+## Get a copy!
+
+Ready to start bitbashing from your Pi Pico in C? Run the following command and replace `my_awesome_app` with whatever your new project name is!
+
+```bash
+curl -s https://raw.githubusercontent.com/davidsiaw/picoci/master/dlexample.bash | bash -s my_awesome_app
+cd my_awesome_app
+```
+
 ## Building
 
 To build the example simply run `make`
@@ -68,9 +82,9 @@ The LED will light up. Otherwise the LED will turn off. Try it!
 
 You can also just go `make connect` or use your favorite UART terminal and press the '1' or '0' keys and see what it does on your Pi Pico!
 
-## Starting out
+## How do I Windows?
 
-Check out the repo, and copy the examples folder somewhere and rename it to your application name to start doing RPI Pico stuff!
+Sorry I don't know how to Windows
 
 ## Conclusion
 
