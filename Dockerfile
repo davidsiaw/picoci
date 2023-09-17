@@ -41,7 +41,8 @@ RUN addgroup -g $USER_GID -S $USERNAME && \
     mkdir -p /src && \
     adduser -S $USERNAME -G $USERNAME -u $USER_GID -h /src && \
     chgrp -R $USERNAME /src && \
-    chown -R $USERNAME /src
+    chown -R $USERNAME /src && \
+    chmod -R 777 /src
 
 USER $USERNAME
 WORKDIR /src
