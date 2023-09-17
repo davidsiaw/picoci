@@ -1,5 +1,3 @@
-mkdir -p cmake
-mkdir -p build
 cd cmake
 cmake ..
 make

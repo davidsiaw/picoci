@@ -33,6 +33,7 @@ all: build
 build/main.uf2: build
 
 build: cmake/sourcelist.cmake $(H_FILES)
+	@mkdir -p build
 	@$(DCMDBASE) $(DIMAGE) sh scripts/build.sh
 
 cmake/sourcelist.cmake: $(C_FILES)
