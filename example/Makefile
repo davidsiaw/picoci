@@ -21,7 +21,7 @@ RFAIL = $(RED_TEXT)FAIL$(NORMAL_TEXT)
 RPASS = $(GREEN_TEXT)PASS$(NORMAL_TEXT)
 
 # docker commands
-DCMDBASE = docker run --rm -ti -v ${PWD}:/src
+DCMDBASE = docker run --rm -v ${PWD}:/src
 DIMAGE := davidsiaw/picoci
 DPRIV = -v /dev:/dev --privileged --user=root
 
@@ -47,10 +47,10 @@ clean:
 	rm -rf build cmake test_obj
 
 deploy: build/main.uf2
-	@$(DCMDBASE) $(DPRIV) $(DIMAGE) sh scripts/deploy.sh ../build/main.uf2
+	@$(DCMDBASE) -ti $(DPRIV) $(DIMAGE) sh scripts/deploy.sh ../build/main.uf2
 
 connect:
-	@$(DCMDBASE) $(DPRIV) $(DIMAGE) sh scripts/connect.sh
+	@$(DCMDBASE) -ti $(DPRIV) $(DIMAGE) sh scripts/connect.sh
 
 test: $(TEST_RESULTS)
 	@for file in $^; do \
