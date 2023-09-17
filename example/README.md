@@ -49,6 +49,25 @@ Run `make connect`
 
 This assumes `ttyACM0` is the port. It will launch `minicom` for this purpose. In case you are unfamiliar with minicom, to quit press `Ctrl-A` and then `Q` and just say yes.
 
+## What does this example do?
+
+It runs a small program that waits for input on the UART. If it recieves a '1', which you can do like
+
+```
+echo -n 1 > /dev/ttyACM0
+```
+
+Assuming the PI Pico comes up on that port, and you are on the dialout group, and readwrite is allowed.
+
+```
+sudo adduser $USER dialout
+sudo chmod a+rw /dev/ttyACM0
+```
+
+The LED will light up. Otherwise the LED will turn off. Try it!
+
+You can also just go `make deploy` and press the '1' or '0' keys and see what it does on your Pi Pico!
+
 ## Starting out
 
 Check out the repo, and copy the examples folder somewhere and rename it to your application name to start doing RPI Pico stuff!
