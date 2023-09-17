@@ -15,6 +15,28 @@ At least one of the sources must contain a `main` function.
 
 It will output a `main.uf2` file to the `build` folder
 
+## Testing
+
+To test your application write each test in separate `.c` file in the `tests/` folder.
+
+Each test file should specify what source files it needs to link to like this:
+
+```c
+/*+test+src/myfile.c*/
+
+#include "myfile.h"
+```
+
+See the examples for a fuller example.
+
+Each test must return 0 to be considered passing, and return any other value for failure.
+
+To run your tests simply run `make tests`
+
+All the output from a test goes into a `<testname>.test.result` file in the `test_objs/` folder. You can use that to produce useful logs from your tests.
+
+Tests are unit tests so they do not run on your pico but they are useful for testing functionality. Importing any pico headers or libraries will not work, so you should build interfaces out to pico libraries if you use them from your functions.
+
 ## Deploying
 
 Simply run `make deploy`

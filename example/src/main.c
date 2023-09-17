@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include "pico/stdlib.h"
+#include <pico/stdlib.h>
+
+#include "state.h"
 
 #define EOI 255
 
@@ -30,14 +32,7 @@ int main()
 	while (true)
 	{
 		user_input = getchar();
-		if (user_input == '1')
-		{
-			state = 1;
-		}
-		else if (user_input == '0')
-		{
-			state = 0;
-		}
+		state = state_from_char(user_input);
 		printf("usersent %d\n", state);
 		gpio_put(LED_PIN, state);
 		sleep_ms(100);
