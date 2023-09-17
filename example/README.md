@@ -66,7 +66,7 @@ sudo chmod a+rw /dev/ttyACM0
 
 The LED will light up. Otherwise the LED will turn off. Try it!
 
-You can also just go `make deploy` and press the '1' or '0' keys and see what it does on your Pi Pico!
+You can also just go `make connect` or use your favorite UART terminal and press the '1' or '0' keys and see what it does on your Pi Pico!
 
 ## Starting out
 
