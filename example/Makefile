@@ -34,10 +34,12 @@ build/main.uf2: build
 
 build: cmake/sourcelist.cmake $(H_FILES)
 	@mkdir -p build
+	@chmod -R 777 build
 	@$(DCMDBASE) $(DIMAGE) sh scripts/build.sh
 
 cmake/sourcelist.cmake: $(C_FILES)
 	@mkdir -p cmake
+	@chmod -R 777 cmake
 	@echo 'set(sources ${sources}' > $@
 	@for file in $^ ; do \
 		echo "  $$file" >> $@; \
